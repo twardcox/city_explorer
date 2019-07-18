@@ -22,15 +22,15 @@ class App extends React.Component {
     this.setState({ location: e.target.value });
   };
 
-  componentDidMount() {
-    superagent
-      .get('https://city-explorer-backend.herokuapp.com/weather')
-      .query({ data: this.state.results })
-      .then(result => {
-        console.log('weather: ', result);
-        this.setState({ weather: result.body });
-      });
-  }
+  // componentDidMount() {
+  //   superagent
+  //     .get('https://city-explorer-backend.herokuapp.com/weather')
+  //     .query({ data: this.state.results })
+  //     .then(result => {
+  //       console.log('weather: ', result);
+  //       this.setState({ weather: result.body });
+  //     });
+  // }
 
   getGeoData = data => {
     data.preventDefault();
