@@ -1,5 +1,7 @@
 import React from 'react';
 
+// DAta from api call
+
 const Result = props => {
   return (
     <article>

@@ -12,7 +12,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       location: {},
-      results: {}
+      results: {},
+      weather: {}
     };
   }
 
@@ -21,6 +22,16 @@ class App extends React.Component {
     this.setState({ location: e.target.value });
   };
 
+  componentDidMount() {
+    superagent
+      .get('https://city-explorer-backend.herokuapp.com/weather')
+      .query({ data: this.state.results })
+      .then(result => {
+        console.log('weather: ', result);
+        this.setState({ weather: result.body });
+      });
+  }
+
   getGeoData = data => {
     data.preventDefault();
 
@@ -28,6 +39,7 @@ class App extends React.Component {
       .get('https://city-explorer-backend.herokuapp.com/location')
       .query({ data: this.state.location })
       .then(result => {
+        console.log('location: ', result);
         this.setState({ results: result.body });
       });
   };
@@ -35,7 +47,7 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Header />
+        <Header className="App-header" />
         <SearchForm getGeoData={this.getGeoData} getLocation={this.getLocation} />
 
         <Map lat={this.state.results.latitude} lng={this.state.results.longitude} />
