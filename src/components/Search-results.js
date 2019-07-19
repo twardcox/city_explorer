@@ -1,6 +1,15 @@
 import React from 'react';
-import Result from './Result';
 
-export const Searchresults = props => {
-  return <Result />;
+export const SearchResults = props => {
+  const listItems = props.data.map((v, i) => {
+    return (
+      <ul key={i} id={i}>
+        <li>{v.time}</li>
+        <li>{v.forecast}</li>
+        <hr />
+      </ul>
+    );
+  });
+
+  return <article>{listItems}</article>;
 };
