@@ -74,6 +74,15 @@ Number and name of feature: Deploy backend
 Estimate of time needed to complete: 4hours
 Start time: 0845
 
-Finish time: **\_**
+Finish time: 1345
 
-Actual time needed to complete: **\_**
+Actual time needed to complete: 4 hours
+
+Number and name of feature: Render front end w/o CSS
+
+Estimate of time needed to complete: 3hours
+Start time: 0845
+
+Finish time: 1242
+
+Actual time needed to complete: 3 hours
