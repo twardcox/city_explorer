@@ -67,7 +67,12 @@ class App extends React.Component {
         <SearchForm onClick={this.getBackendUrl} formName="Backend Url" />
         <SearchForm onClick={this.getAllData} formName="Search Location" />
 
-        <img id="mapImg" src={`https://maps.googleapis.com/maps/api/staticmap?center=${this.state.googleResults.latitude}%2c%20${this.state.googleResults.longitude}&zoom=13&size=600x300&maptype=roadmap&key=${this.state.STATIC_MAP_API_KEY}`} alt="map" />
+        {!this.state.STATIC_MAP_API_KEY ? (
+          <img id="mapImg" width="300" src="https://staticmapmaker.com/img/google@2x.png" alt="Google Map of Albany, NY" />
+        ) : (
+          <img id="mapImg" src={`https://maps.googleapis.com/maps/api/staticmap?center=${this.state.googleResults.latitude}%2c%20${this.state.googleResults.longitude}&zoom=13&size=600x300&maptype=roadmap&key=${this.state.STATIC_MAP_API_KEY}`} alt="map" />
+        )}
+
         <h2>Here are the results for {this.state.googleResults.formatted_query}</h2>
         <div>
           <WeatherRes data={this.state.apiResults.weathers} />
